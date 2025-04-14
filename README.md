@@ -3,7 +3,7 @@
 A vocabulary learning platform that fetches data dynamically from public APIs. Built using modern web technologies, this project helps users explore English vocabulary lessons, understand word meanings, and test their knowledge interactively.
 
 ---
-
+## live repo:https://cosmic-pithivier-bfe7f4.netlify.app/
 ## ⚡ API Endpoints
 
 - **Get All Levels:**  
