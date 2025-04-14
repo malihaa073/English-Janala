@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English-Janala-APP</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <!--<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>-->
+    <script src="https://cdn.tailwindcss.com"></script>
+ 
+    <style>
+        .active{
+                background:#422AD5 !important;
+                color: white !important;
+             
+               
+                
+        }
+        #insideLessonContainer {
+            display: none; /* Hide initially */
+        }
+        #All {
+            display: none;
+        }
+        #header{
+            display: none;
+        }
+      
+        #faq{
+          display: none;
+        }
+        #fb{
+          display: none;
+        }
+        #insta{
+          display: none;
+      }
+    
+      #github{
+        display: none;
+      }
+      #youtube{
+        display: none;
+      }
+      html {
+        scroll-behavior: smooth;
+    }
+      
+      </style>
+
+
+
+</head>
+<body>
+    <header id="header" class="w-full h-14  bg-[#F8F8F8]" >
+            <nav class=" mx-auto w-11/12 py-2 flex flex-row justify-between ">
+                <div class="flex flex-row  ">
+                    <h1 class="font-bold text-2xl">English</h1>
+                    <img class="w-[40px] h-[40px]" src="./assets/image.png" alt="" srcset="">
+                    <h1 class="text-1xl pt-2">জানালা</h1>
+                </div>
+                <div class="flex gap-3 justify-center items-center">
+                    <button id="btn-faq" onclick="activeFaq()" class=" mx-auto hover:text-white hover:bg-[#422AD5] btn btn-sm box-border border border-[rgb(66,42,213)] rounded-md p-4 flex gap-2 text-[#422AD5]">
+                        <img class="w-6 h-6 " src="https://img.icons8.com/?size=40&id=21352&format=png " alt="" srcset="" > FAQ</button>
+                    <button id="btn-learn" onclick="activeLearn()"  class=" mx-auto hover:text-white hover:bg-[#422AD5] items-center justify-center btn btn-sm box-border border border-[rgb(66,42,213)] rounded-md p-4 flex gap-2 text-[#422AD5]">
+                         <img class="w-6 h-6 " src="https://img.icons8.com/?size=40&id=6eFvVwcFeLx0&format=gif" alt="" srcset="" > Learn</button>
+                    <button id="btn-logout" onclick="activeLogout()" class=" mx-auto hover:text-white hover:bg-[#422AD5] btn btn-sm box-border border border-[rgb(66,42,213)] rounded-md p-4 flex gap-2 text-[#422AD5]">
+                         <img class="w-6 h-6 " src="https://img.icons8.com/?size=48&id=13925&format=png" alt="" srcset="" > Logout</button>
+                                     
+                </div>
+            </nav>
+    </header>
+      <section id="login">
+        <nav class="w-full ">
+            <div class="flex flex-row justify-between items-center gap-5 mx-auto px-5  ">
+               <div class="  px-10">
+                 <h1 class="text-3xl text-black font-bold">
+                     <span class="text-[#422AD5]">English</span> is Easy
+                 </h1>
+                 <p class="pt-3 pb-8">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। 
+                     আপনি যদি নতুন হন অথবা <br> আপনার দক্ষতা বাড়াতে চান,
+                      আমাদের Interactive Lessons আপনাকে নিয়ে <br>যাবে অন্য একটি Level এ
+                 </p>
+                 <div class="space-y-1 flex flex-col">
+                     <label class="input validator w-1/2">
+                         <input id="nameInput" type="text" required placeholder="Enter your name" 
+                                pattern="[A-Za-z][A-Za-z0-9\-]*" minlength="1" maxlength="30" 
+                                title="Only letters, numbers or dash"
+                                class="w-full focus:w-[100%] border border-black px-2 py-1 rounded-md transition-all duration-300 ease-in-out outline-none focus:border-gray-600" />
+                     </label>
+                   
+                 
+                     <label class="input validator w-1/2">
+                         <input id="pass" type="password" required placeholder=".............." 
+                                min="1" max="6" title="Must be between 1 to 6"
+                                class="w-full focus:w-[100%] border border-black px-2 py-1 rounded-md transition-all duration-300 ease-in-out outline-none focus:border-gray-600" />
+                     </label>
+ 
+                     <div class="pt-3 pl-2"><button  id="get-Started-btn" class="w-[114.83px] box-border border border-[#3D26C7] rounded-md bg-[#422AD5] text-white px-4 py-2">Get Started</button></div>
+                 </div>
+                 
+                 
+                 
+               </div>
+               <img src="./assets/hero-student.png" alt="">
+            </div>
+        </nav>
+      </section>
+   <div id="All" class="mb-24">
+
+    <main class="">
+       
+
+        <section  class="mx-auto w-full mt-16 mb-16">
+         <div class="pt-12 px-5">
+             <h3 class="font-bold text-center text-4xl">
+                 <span class="text-[#00BCFF]">Let's </span>Learn Vocabularies
+             </h3>
+             
+         </div>
+          <div id="learn" class="mx-auto flex flex-row gap-10 pb-5 justify-center items-center pt-5">
+ 
+          </div>
+ 
+          <div  id="noLessonMessage" class="mt-10 pt-24 bg-[#F8F8F8] mx-auto items-center pb-28">
+             <p class="text-[#79716B] font-normal text-[13.38px] leading-[24px] tracking-normal text-center text-sm pb-2">আপনি এখনো কোন Lesson Select করেননি</p>
+             <p class="text-center  text-[#292524] font-medium text-[34.31px] pb-10">একটি Lesson Select করুন।</p>
+          </div>
+ 
+        </section>
+
+        
+<section id="loader" class="text-center  py-10 hidden">
+
+  <span class="loading loading-spinner loading-sm"></span>
+</section>
+        <section id="insideLessonContainer" class="mt-32pt-4 w-11/12 grid grid-cols-3 gap-2 mx-auto rounded-[24px] bg-[#F8F8F8] p-4 shadow-md ">
+             
+        </section>
+        <section class="mx-auto w-full  mt-52">
+      
+        </section>
+
+
+        <dialog id="videoDetails" class="modal">
+            <div class="modal-box">
+               <div id="details-container"></div>
+              <div class="modal-action items-start justify-start" >
+                <form method="dialog" >
+                  <!-- if there is a button in form, it will close the modal -->
+                  <button class="btn rounded-[12px] bg-[rgb(66,42,213)] text-white w-[219px] h-[52px] px-[6px] py-[20px] text-center">Complete Learning</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+    </main>
+
+
+
+   </div>
+<section  class="">
+  <div id="faq" class="mt-5 mb-24   mx-auto items-center justify-center px-14 bg-white pb-10">
+
+    <h1 class=" pb-14 pt-24 font-poppins text-[36px] font-bold leading-[40px] tracking-normal text-center"><span class="text-[#00BCFF]">Frequently</span> Asked Questions</h1>
+  <div class="border-b  bg-[#F8F8F8]  px-3 mb-6">
+    <button onclick="toggleAccordion(1)" class="w-full flex justify-between items-center py-5 text-slate-800">
+      <span> 1.The difference between var, let, and const</span>
+      <span id="icon-1" class="text-slate-800 transition-transform duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+          <path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
+        </svg>
+      </span>
+    </button>
+    <div id="content-1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+      <div class="pb-5 text-sm text-slate-500">
+        In JavaScript, var is function-scoped, can be re-declared, and is hoisted to the top of its scope with an initial value of undefined.
+         It is less recommended in the code. let is block-scoped, cannot be re-declared, and is hoisted without initialization, making it
+          inaccessible until it is initialized (temporal dead zone). Similarly, const is block-scoped, cannot be re-declared or reassigned, 
+          and is also hoisted without initialization, remaining in the temporal dead zone until its declaration.
+         let is preferred for variables that need to be updated, while const is ideal for constants whose values shouldn’t change.
+      </div>
+    </div>
+  </div>
+   
+  <!-- Accordion Item 2 -->
+  <div class="border-b border-slate-200 bg-[#F8F8F8]  px-3 mb-6">
+    <button onclick="toggleAccordion(2)" class="w-full flex justify-between items-center py-5 text-slate-800">
+      <span> 2.The difference between map(), forEach(), and filter()</span>
+      <span id="icon-2" class="text-slate-800 transition-transform duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+          <path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
+        </svg>
+      </span>
+    </button>
+    <div id="content-2" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+      <div class="pb-5 text-sm text-slate-500">
+        map() transforms each element in an array and returns a new array of the same length with the transformed elements.
+         It is used when you need to modify or map each element to a new value. forEach() iterates over each element in an array to 
+         perform an action  but does not return anything. It is useful when you need to execute a function on each element without 
+         creating a new array. 
+        filter() is used to create a new array containing only the elements that match a specified condition, filtering out the rest.
+      </div>
+    </div>
+  </div>
+   
+  <!-- Accordion Item 3 -->
+  <div class="border-b border-slate-200 bg-[#F8F8F8]  px-3 mb-6">
+    <button onclick="toggleAccordion(3)" class="w-full flex justify-between items-center py-5 text-slate-800">
+      <span>3.Explain arrow functions and how they are different from regular functions</span>
+      <span id="icon-3" class="text-slate-800 transition-transform duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+          <path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
+        </svg>
+      </span>
+    </button>
+    <div id="content-3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+      <div class="pb-5 text-sm text-slate-500">
+        
+Arrow functions in JavaScript offer a concise syntax for writing functions.
+ When an arrow function contains a single expression, it can omit the curly braces and the explicit return 
+ statement—this is known as an implicit return. Unlike regular functions, arrow functions do not have their
+  own this binding; they inherit this from their surrounding lexical scope, which simplifies handling context
+   in callbacks and event handlers. They also lack their own arguments object and cannot be used as constructors, 
+   marking key differences from regular functions.
+
+
+      </div>
+    </div>
+  </div>
+
+    <!-- Accordion Item 4 -->
+    <div class="border-b border-slate-200 bg-[#F8F8F8]  px-3 mb-6">
+      <button onclick="toggleAccordion(4)" class="w-full flex justify-between items-center py-5 text-slate-800">
+        <span>4.How JavaScript Promises work</span>
+        <span id="icon-4" class="text-slate-800 transition-transform duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+            <path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
+          </svg>
+        </span>
+      </button>
+      <div id="content-4" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+        <div class="pb-5 text-sm text-slate-500">
+          In JavaScript, Promises represent the result of an asynchronous operation. They have three states: pending (ongoing), 
+          fulfilled (successful, resolved with a value), or rejected (failed, with an error). You create a Promise using the Promise 
+          constructor, handle results with .then() for success, .catch() for errors, and .finally() for
+           cleanup. Promises can be chained for sequential operations, making asynchronous code cleaner and easier to manage compared to callbacks.
+        </div>
+      </div>
+    </div>
+   
+        <!-- Accordion Item 5 -->
+        <div class="border-b border-slate-200 bg-[#F8F8F8]  px-3 mb-6">
+          <button onclick="toggleAccordion(5)" class="w-full flex justify-between items-center py-5 text-slate-800">
+            <span>5.How closures work in JavaScript</span>
+            <span id="icon-5" class="text-slate-800 transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+                <path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </button>
+          <div id="content-5" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="pb-5 text-sm text-slate-500">Closures in JavaScript allow a function to retain access to its outer (lexical) scope even
+               after the outer function has finished executing. This means that an inner function "remembers" the variables and parameters of the
+                function in which it was created. For example, when you define a function inside another function, the inner function can use variables 
+                from the outer function even after that outer function has returned. This feature is especially useful for creating private variables or 
+                functions, as it lets you encapsulate state that persists over time without exposing it directly. Essentially, closures 
+              enable powerful patterns in JavaScript such as function factories, module patterns, and event handlers that maintain state between invocations.
+            </div>
+          </div>
+        </div>
+  </div>
+</section>
+
+
+    <footer id="footer" class="footer mt-16 sm:footer-horizontal bg-white text-neutral-content p-10 flex flex-row justify-between">
+        <aside>
+            <div class="flex flex-row  ">
+                <h1 class="text-[#18181B] font-poppins text-[20px] font-semibold leading-[28px] tracking-normal text-left">English</h1>
+                <img class="w-[40px] h-[40px]" src="./assets/image.png" alt="" srcset="">
+                <h1 class="text-[#18181B] font-poppins text-[15px] font-semibold leading-[28px] tracking-normal text-left ">জানালা</h1>
+            </div>
+          <p class="text-black font-hind-siliguri text-[18px] font-semibold leading-[28px] tracking-normal text-left">
+            ইংরেজি শিখুন সহজে
+            <br />
+           <span class="font-normal text-[12px]"> Providing ED-Tech Applications since 2025</span>
+          </p>
+        </aside>
+        <nav>
+          <h6 class="footer-title text-[rgb(24,24,27)] font-poppins text-[14px] font-semibold leading-[20px] tracking-normal text-left uppercase pt-16">Follow us on</h6>
+          <div class="grid grid-flow-col gap-4 items-centers justify-center">
+            
+            <a href="https://www.facebook.com/">
+             <img  class="w-6 h-6" src="./assets/fb-thumb.png" alt="" srcset="">
+           
+
+            </a>
+            <a href="https://www.youtube.com/">
+             <img  class="w-6 h-6" src="./assets/youtube-thumb.png" alt="" srcset="">
+            </a>
+            <a href="https://www.instagram.com/">
+                <img class="w-6 h-6" src="./assets/instagram-thumb.png" alt="" srcset="">
+            </a>
+            <a href="https://github.com/">
+                <img  class="w-6 h-6" src="./assets/github-thumb.png" alt="" srcset="">
+            </a>
+          </div>
+        </nav>
+      </footer>
+
+      <script>
+        function toggleAccordion(index) {
+          const content = document.getElementById(`content-${index}`);
+          const icon = document.getElementById(`icon-${index}`);
+       
+          // SVG for Down icon
+          const downSVG = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+              <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+            </svg>
+          `;
+       
+          // SVG for Up icon
+          const upSVG = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+              <path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
+            </svg>
+          `;
+       
+          // Toggle the content's max-height for smooth opening and closing
+          if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+            content.style.maxHeight = '0';
+            icon.innerHTML = upSVG;
+          } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            icon.innerHTML = downSVG;
+          }
+        }
+      </script>
+   <script src="/scripts/main.js"></script>
+</body>
+</html>
